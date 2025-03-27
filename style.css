@@ -1,0 +1,79 @@
+/* Smooth Page Scroll */
+html { scroll-behavior: smooth; }
+
+/* RGB Background Animation */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(90deg, #ff0000, #ff7300, #ffeb00, #00ff00, #00aaff, #7700ff);
+    background-size: 400% 400%;
+    animation: moveBg 5s infinite alternate;
+    color: white;
+    margin: 0;
+}
+
+/* RGB Text Animation */
+.rgb-text {
+    font-size: 60px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 20px white;
+    animation: rgbWave 2s infinite alternate;
+}
+
+@keyframes rgbWave {
+    0% { color: #ff0000; }
+    25% { color: #00ff00; }
+    50% { color: #0000ff; }
+    75% { color: #ff00ff; }
+    100% { color: #ff0000; }
+}
+
+/* Background Animation */
+@keyframes moveBg {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Button Style */
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* Sections */
+section {
+    padding: 50px;
+    margin: 50px auto;
+    max-width: 800px;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Video Embed */
+iframe {
+    margin-top: 20px;
+    border-radius: 15px;
+    border: none;
+}
+
+/* Image Styling */
+img {
+    width: 200px;
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+}
