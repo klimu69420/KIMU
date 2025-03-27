@@ -6,3 +6,4 @@ document.querySelectorAll('.btn').forEach(button => {
         target.scrollIntoView({ behavior: 'smooth' });
     });
 });
+

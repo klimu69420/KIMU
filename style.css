@@ -1,38 +1,29 @@
 /* Smooth Page Scroll */
 html { scroll-behavior: smooth; }
 
-/* RGB Background Animation */
+/* Elegant Background (Dark Purple & Navy) */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     text-align: center;
-    background: linear-gradient(90deg, #ff0000, #ff7300, #ffeb00, #00ff00, #00aaff, #7700ff);
-    background-size: 400% 400%;
-    animation: moveBg 5s infinite alternate;
+    background: linear-gradient(90deg, #1a0033, #001a33);
+    background-attachment: fixed;
     color: white;
     margin: 0;
 }
 
-/* RGB Text Animation */
-.rgb-text {
+/* Elegant Header */
+.hero {
+    padding: 100px 20px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Elegant Title */
+.title {
     font-size: 60px;
     font-weight: bold;
     text-transform: uppercase;
-    text-shadow: 0px 0px 20px white;
-    animation: rgbWave 2s infinite alternate;
-}
-
-@keyframes rgbWave {
-    0% { color: #ff0000; }
-    25% { color: #00ff00; }
-    50% { color: #0000ff; }
-    75% { color: #ff00ff; }
-    100% { color: #ff0000; }
-}
-
-/* Background Animation */
-@keyframes moveBg {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+    color: #b066ff; /* Soft Purple */
 }
 
 /* Button Style */
@@ -76,4 +67,25 @@ img {
     margin-top: 20px;
     border-radius: 15px;
     box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Subscription List */
+ul {
+    list-style: none;
+    padding: 0;
+    font-size: 18px;
+}
+
+ul li {
+    padding: 10px;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    margin-top: 50px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 14px;
 }
