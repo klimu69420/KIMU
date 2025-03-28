@@ -3,43 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hinemates - Official Website</title>
+    <title>Hinemates - Gaming & Memes</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #0a043c, #3d087b);
+            color: white;
+            margin: 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .profile-section {
+            text-align: right;
+        }
+
+        .profile-section input {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .comment-box {
+            margin: 20px auto;
+            padding: 10px;
+            width: 80%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .comment-box textarea {
+            width: 100%;
+            height: 80px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background: #3d087b;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: #25055c;
+        }
+
+        .comments-list {
+            text-align: left;
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        .comment {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <header class="hero">
-        <h1 class="title">Hinemates</h1>
-        <p>🔥 Gaming | Memes | Fun 🔥</p>
-        <a href="#about" class="btn">Learn More</a>
-    </header>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Yo! I'm Kimu, the creator behind Hinemates. I make crazy memes and gaming content.</p>
-        <img src="images/hinemates-logo.png" alt="Hinemates Logo">
+    <div class="header-container">
+        <h1 class="elegant-title">HINEMATES</h1>
+        <div class="profile-section">
+            <input type="text" id="username" placeholder="Enter your username">
+        </div>
+    </div>
+    
+    <section class="profile">
+        <h2>About Hinemates</h2>
+        <p>Welcome to Hinemates! The place where gaming and memes collide. Join us on Discord and subscribe on YouTube!</p>
+        <a href="https://www.youtube.com/@Kimuop" class="btn">Subscribe Now</a>
     </section>
 
-    <section id="videos">
-        <h2>🎬 Latest Video</h2>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed?list=UUihghaUnGUJvh_qWWbb2ofQ" allowfullscreen></iframe>
-        <a href="https://www.youtube.com/@Kimuop" class="btn" target="_blank">Subscribe</a>
+    <section class="content-section">
+        <h2>Latest Video</h2>
+        <iframe src="https://www.youtube.com/embed/?list=UUihghaUnGUJvh_qWWbb2ofQ" frameborder="0" allowfullscreen></iframe>
     </section>
 
-    <section id="subscribe">
+    <section class="discord-section">
+        <h2>Join the Discord</h2>
+        <p>Connect with the community and be part of something awesome!</p>
+        <a href="https://discord.gg/798KBxhJ" class="btn">Join Now</a>
+    </section>
+
+    <section class="content-section">
+        <h2>About Redmate</h2>
+        <p>Redmate is an exclusive content series featuring gaming highlights, meme compilations, and unique discussions on esports. Stay tuned for more!</p>
+    </section>
+
+    <section class="content-section">
         <h2>Why You Should Subscribe</h2>
-        <ul>
-            <li>🔥 Insane memes that make your day better!</li>
-            <li>🎮 Epic gaming content & funny moments</li>
-            <li>💥 Daily entertainment, no boring stuff!</li>
-            <li>🚀 Be part of the Hinemates community!</li>
-        </ul>
-        <a href="https://www.youtube.com/@Kimuop" class="btn" target="_blank">Subscribe Now</a>
+        <p>By subscribing to Hinemates, you're joining a community of passionate gamers and meme lovers. Expect high-quality content, regular uploads, and interactive fun!</p>
     </section>
+
+    <section class="content-section">
+        <h2>Why Barca is the Best</h2>
+        <p>FC Barcelona isn’t just a football club; it’s a legacy! From legendary players like Messi, Xavi, and Iniesta to their unique tiki-taka playstyle, Barca remains one of the greatest teams in football history.</p>
+    </section>
+
+    <section class="comment-box">
+        <h2>Leave a Comment</h2>
+        <textarea id="commentInput" placeholder="Write a comment..."></textarea>
+        <button class="btn" onclick="addComment()">Post Comment</button>
+    </section>
+
+    <div class="comments-list" id="commentsList"></div>
 
     <footer>
-        <p>&copy; 2025 Hinemates. All rights reserved.</p>
+        <p>&copy; 2025 Hinemates - All Rights Reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", loadComments);
+
+        function addComment() {
+            let username = document.getElementById('username').value;
+            let commentText = document.getElementById('commentInput').value;
+            let commentSection = document.getElementById('commentsList');
+
+            if (username.trim() === "") {
+                alert("Please enter a username before commenting.");
+                return;
+            }
+            if (commentText.trim() === "") {
+                alert("Comment cannot be empty.");
+                return;
+            }
+
+            let comment = document.createElement("div");
+            comment.classList.add("comment");
+            comment.innerHTML = `<strong>${username}:</strong> ${commentText} <button onclick="replyToComment(this)" class="btn">Reply</button>`;
+            commentSection.appendChild(comment);
+            document.getElementById('commentInput').value = "";
+
+            saveComments();
+        }
+
+        function replyToComment(button) {
+            let parentComment = button.parentElement;
+            let replyInput = document.createElement("textarea");
+            replyInput.placeholder = "Write a reply...";
+            let submitReply = document.createElement("button");
+            submitReply.innerText = "Reply";
+            submitReply.classList.add("btn");
+            submitReply.onclick = function() {
+                let replyText = replyInput.value.trim();
+                if (replyText === "") {
+                    alert("Reply cannot be empty.");
+                    return;
+                }
+                let reply = document.createElement("div");
+                reply.classList.add("comment");
+                reply.style.marginLeft = "20px";
+                reply.innerHTML = `<strong>Reply:</strong> ${replyText}`;
+                parentComment.appendChild(reply);
+                replyInput.remove();
+                submitReply.remove();
+                saveComments();
+            };
+            parentComment.appendChild(replyInput);
+            parentComment.appendChild(submitReply);
+        }
+
+        function saveComments() {
+            localStorage.setItem("comments", document.getElementById('commentsList').innerHTML);
+        }
+
+        function loadComments() {
+            document.getElementById('commentsList').innerHTML = localStorage.getItem("comments") || "";
+        }
+    </script>
 </body>
 </html>
